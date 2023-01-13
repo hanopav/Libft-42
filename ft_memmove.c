@@ -29,12 +29,3 @@ void *ft_memmove(void *str1, const void *str2, unsigned int n)
     	}
 	return (str1);
   }
-
-// int main()
-// {
-// 	char str1[] = "hell";
-// 	char str2[] = "the";
-
-// 	ft_memmove(str1, str2, 6);	
-// 	printf ("%s\n", str1);
-// }
