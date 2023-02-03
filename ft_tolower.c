@@ -6,25 +6,15 @@
 /*   By: phanosek <phanosek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:41:20 by phanosek          #+#    #+#             */
-/*   Updated: 2023/01/12 15:19:41 by phanosek         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:59:21 by phanosek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-char	*ft_tolower(char *str)
+int	ft_tolower(int c)
 {	
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 65 && str[i] <= 90)
-		{
-			str[i] = str[i] + 32;
-		}
-		i++;
-	}
-	return (str);
+	if (c >= 65 && c <= 90)
+		c = c + 32;
+	return (c);
 }

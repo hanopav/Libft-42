@@ -6,26 +6,31 @@
 /*   By: phanosek <phanosek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:33:59 by phanosek          #+#    #+#             */
-/*   Updated: 2023/01/12 12:34:01 by phanosek         ###   ########.fr       */
+/*   Updated: 2023/01/17 14:18:57 by phanosek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	if (!n)
+		return (0);
+	while ((*str1 && *str2) && i < n)
 	{
-		if (s1[i] > s2[i])
-			return (s1[i] - s2[i]);
-		if (s1[i] < s2[i])
-			return (s1[i] - s2[i]);
+		if (*str1 != *str2)
+			return (*(unsigned char *)str1 - *(unsigned char *)str2);
+		str1++;
+		str2++;
 		i++;
 	}
-	return (0);
+	if (i == n)
+	{
+		str1--;
+		str2--;
+	}
+	return (*(unsigned char *)str1 - *(unsigned char *)str2);
 }

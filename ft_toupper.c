@@ -6,25 +6,15 @@
 /*   By: phanosek <phanosek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:41:41 by phanosek          #+#    #+#             */
-/*   Updated: 2023/01/12 15:19:30 by phanosek         ###   ########.fr       */
+/*   Updated: 2023/01/16 16:02:20 by phanosek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-char	*ft_toupper(char *str)
+int	ft_toupper(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - 32;
-		}
-		i++;
-	}
-	return (str);
+	if (c >= 97 && c <= 122)
+		c = c - 32;
+	return (c);
 }

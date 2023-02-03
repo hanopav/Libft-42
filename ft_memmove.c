@@ -6,26 +6,64 @@
 /*   By: phanosek <phanosek@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:02:07 by phanosek          #+#    #+#             */
-/*   Updated: 2023/01/11 16:19:07 by phanosek         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:41:03 by phanosek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 
-void *ft_memmove(void *str1, const void *str2, unsigned int n)
+// void	*ft_memmove(void *dst, const void *src, size_t len)
+// {
+// 	char	*s;
+// 	char	*d;
+
+// 	s = (char *)src;
+// 	d = (char *)dst;
+// 	if (dst == src)
+// 		return (dst);
+// 	if (s < d)
+// 	{
+// 		while (len)
+// 		{
+// 			*(d + len) = *(s + len);
+// 			len--;
+// 		}
+// 		return (dst);
+// 	}
+// 	while (len)
+// 	{
+// 		*d = *s;
+// 		d++;
+// 		s++;
+// 		len--;
+// 	}
+// 	return (dst);
+// }
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	
-	char *owndst = str1;
-	const char *ownsrc = str2;
-	
-  int	i;
-  i = 0;
-  	while(n > 0)
-    	{
-      	owndst[i] = ownsrc[i];
-		i++;
-      	n--;
-    	}
-	return (str1);
-  }
+	char	*d;
+	char	*s;
+
+	d = (char *)dst;
+	s = (char *)src;
+	if (dst == src)
+		return (dst);
+	if (s < d)
+	{
+		while (len != 0)
+		{
+			len--;
+			*(d + len) = *(s + len);
+		}
+		return (dst);
+	}
+	while (len != 0)
+	{
+		*d = *s;
+		len--;
+		d++;
+		s++;
+	}
+	return (dst);
+}
